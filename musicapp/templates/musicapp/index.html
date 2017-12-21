@@ -1,0 +1,24 @@
+{% extends 'musicapp/base.html' %}
+
+{% block albumact %}
+active
+{% endblock %}
+
+{% block title %}
+    ALL ALBUMS
+{% endblock %}
+
+{% block body %}
+    {% if eve_album %}
+        <ul class = 'album_list'>
+            <h3>ALL ALBUMS</h3>
+            {% for album in eve_album %}
+                <li id = "selected">
+                    <a href = "{% url 'musicapp:detail' album.id %}">{{ album.album_title }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <h2> nonononono </h2>
+    {% endif %}
+{% endblock %}
